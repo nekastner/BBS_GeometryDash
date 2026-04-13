@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6835357994146794596}
   - component: {fileID: 4436832135065896092}
   - component: {fileID: 8415353244226468321}
+  - component: {fileID: 7753315788631922068}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -165,3 +166,15 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 1565342754069346948}
+--- !u!114 &7753315788631922068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565342754069346948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c66327fca4a08d0f90ef43604ff95bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
