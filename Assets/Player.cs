@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     {
         if (_jumpAction.WasPerformedThisFrame())
         {
-            _body.AddForce(Vector2.up);
+            _body.AddForceY(1);
         }
     }
 }
