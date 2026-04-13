@@ -3,6 +3,6 @@ For this project, our Teacher told us to work with scrum on a game of our choice
 We decided to program a small Version of Geometry Dash in Unity.
 
 Scrum Rolls:
-- Scrum Master: ?
-- Produkt Owner: ?
+- Scrum Master: Konstantin Weisang
+- Produkt Owner: Marlon Theis
 - Devs: Fynn Brederlow, Noah Elias Kastner
