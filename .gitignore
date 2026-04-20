@@ -1,4 +1,6 @@
-Assembly-CSharp.csproj
+*.sln
+*.slnx
+*.csproj
 /.git
 /.idea
 /Library
