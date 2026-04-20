@@ -4,7 +4,7 @@ public class InputManagementScript : MonoBehaviour
 {
     public static InputManagementScript Instance { get; private set; }
     
-    public Player Player { get; private set; }
+    public Controls Controls { get; private set; }
 
     void Awake()
     {
@@ -17,7 +17,7 @@ public class InputManagementScript : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        //Player = new Player();
-        //Player.Enable();
+        Controls = new Controls();
+        Controls.Enable();
     }
 }
