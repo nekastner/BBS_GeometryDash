@@ -550,7 +550,7 @@ PrefabInstance:
     - target: {fileID: 7753315788631922068, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: playerInput
       value: 
-      objectReference: {fileID: 1982793496634542553}
+      objectReference: {fileID: 1982793496634542558}
     - target: {fileID: 7753315788631922068, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: jumpAction.m_Name
       value: Jump
@@ -585,14 +585,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1565342754069346948, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1982793496634542553}
+      addedObject: {fileID: 1982793496634542558}
   m_SourcePrefab: {fileID: 100100000, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
 --- !u!1 &1982793496634542552 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1565342754069346948, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
   m_PrefabInstance: {fileID: 1982793496634542551}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1982793496634542553
+--- !u!114 &1982793496634542558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -604,8 +604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 98d02f5578021758885d75cefe085dcc, type: 3}
-  m_NotificationBehavior: 0
+  m_Actions: {fileID: -944628639613478452, guid: 788fe3a05486fafdfa8ce1c267984b61, type: 3}
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -616,10 +616,14 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 25524586-a0b8-4eca-94a4-929ecb89ea2c
+    m_ActionName: 'PlayerAction/Jump[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: PlayerAction
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1001 &4606998776698334512

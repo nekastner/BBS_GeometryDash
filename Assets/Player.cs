@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         jumpAction = playerInput.actions["Jump"];
-        jumpAction.performed += OnJugitmp;
+        jumpAction.performed += OnJump;
     }
 
     // Update is called once per frame
@@ -22,13 +22,13 @@ public class Player : MonoBehaviour
         
     }
 
-    private void OnJump(InputAction.CallbackContext context)
+    public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed) Jump();
     }
 
     private void Jump()
     {
-        body.AddForceY(JumpForce);
+        body.AddForce(Vector2.up);
     }
 }
