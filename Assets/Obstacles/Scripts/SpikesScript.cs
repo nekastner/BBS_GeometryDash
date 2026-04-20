@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Obstacles.Scripts
@@ -10,7 +11,7 @@ namespace Obstacles.Scripts
         public void Start()
         {
             // load prefabs
-            _spikePrefab = Resources.Load("Spike");
+            _spikePrefab = UnityEngine.Resources.Load("Spike");
             
             // spawn spikes
             var spawnPosition = transform.position;
