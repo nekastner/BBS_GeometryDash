@@ -839,6 +839,10 @@ PrefabInstance:
       propertyPath: ims
       value: 
       objectReference: {fileID: 932379636}
+    - target: {fileID: -3485462989641053996, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1565342754069346948, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: m_Name
       value: Player
