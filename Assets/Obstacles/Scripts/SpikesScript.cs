@@ -1,43 +1,55 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Obstacles.Scripts
 {
     public class SpikesScript : MonoBehaviour
     {
-        [SerializeField] public float speed;
-        [SerializeField] public float spawnTimeDistance;
+        public float speed;
+        public float spawnTimeDistance;
+        public GameObject spikePrefab;
+        public Transform spawnerPosition;
         
-        private Object _spikePrefab;
         private float _timeSinceLastSpawn;
-        private readonly List<Object> _spawnedObjects = new();
+        private readonly List<GameObject> _spawnedObjects = new();
     
         public void Start()
         {
-            this._spikePrefab = UnityEngine.Resources.Load("Spike");
+            this._timeSinceLastSpawn = this.spawnTimeDistance;
         }
     
         public void Update()
         {
+            // check delta time
             var deltaTime = Time.deltaTime;
             this._timeSinceLastSpawn += deltaTime;
-            
-            foreach (var spawnedObject in this._spawnedObjects)
-                spawnedObject.GameObject().transform.Translate(Vector3.left * (this.speed * deltaTime));
 
-            if (this._timeSinceLastSpawn < this.spawnTimeDistance) return;
+            foreach (var spawnedObject in this._spawnedObjects.ToArray())
+            {
+                // move spike
+                spawnedObject.transform.Translate(Vector3.left * (this.speed * deltaTime));
+                // delete spike if out of map
+                if (spawnedObject.transform.position.x < -this.spawnerPosition.position.x)
+                {
+                    this._spawnedObjects.Remove(spawnedObject);
+                    Destroy(spawnedObject);
+                }
+            }
             
-            this.SpawnRandomAmountOfSpikes();
-            this._timeSinceLastSpawn = 0;
+            // spawn new spikes if the time has come
+            if (this._timeSinceLastSpawn >= this.spawnTimeDistance)
+            {
+                this.SpawnRandomAmountOfSpikes();
+                this._timeSinceLastSpawn = 0;
+            }
         }
 
         private void SpawnSingleSpike(Vector3 position)
         {
-            if (this._spikePrefab is null)
+            if (this.spikePrefab is null)
                 throw new System.Exception("Spike prefab is null!");
             
-            this._spawnedObjects.Add(Instantiate(this._spikePrefab, position, Quaternion.identity));
+            this._spawnedObjects.Add(Instantiate(this.spikePrefab, position, Quaternion.identity));
         }
 
         private void SpawnSpecificAmountOfSpikes(byte amount)

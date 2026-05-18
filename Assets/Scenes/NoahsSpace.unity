@@ -367,8 +367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f4b75455c89c5f3b5bcba55a69e2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacles.Scripts.SpikesScript
-  speed: 1
+  speed: 10
   spawnTimeDistance: 5
+  spikePrefab: {fileID: 8909906635777225203, guid: 4357f1d3c847bee92b3c68cc11485a5c, type: 3}
 --- !u!1001 &1376360290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -391,11 +392,19 @@ PrefabInstance:
       objectReference: {fileID: 1949529245}
     - target: {fileID: -3485462989641053996, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: jumpForce
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1565342754069346948, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436832135065896092, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436832135065896092, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
+      propertyPath: m_GravityScale
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6566523375165811174, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -403,7 +412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6566523375165811174, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6566523375165811174, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: m_LocalPosition.z
@@ -469,7 +478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8567556665177266208, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: 8567556665177266208, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
       propertyPath: m_LocalPosition.z
