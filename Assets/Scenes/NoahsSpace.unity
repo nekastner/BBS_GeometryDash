@@ -350,6 +350,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1476d5dcacb5366028452b23101cb9e1, type: 3}
+--- !u!1 &991164664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 212504678370371471, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
+  m_PrefabInstance: {fileID: 1525926447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &991164667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991164664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f4b75455c89c5f3b5bcba55a69e2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Obstacles.Scripts.SpikesScript
+  speed: 1
+  spawnTimeDistance: 5
 --- !u!1001 &1376360290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -440,13 +459,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstacleSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 8567556665177266208, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
-      propertyPath: m_LocalPosition.x
+    - target: {fileID: 8156993794791998613, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8567556665177266208, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567556665177266208, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8567556665177266208, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
       propertyPath: m_LocalPosition.z
@@ -483,7 +506,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 212504678370371471, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 991164667}
   m_SourcePrefab: {fileID: 100100000, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
 --- !u!1001 &1576815112
 PrefabInstance:
