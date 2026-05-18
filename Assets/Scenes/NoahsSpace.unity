@@ -370,6 +370,12 @@ MonoBehaviour:
   speed: 10
   spawnTimeDistance: 5
   spikePrefab: {fileID: 8909906635777225203, guid: 4357f1d3c847bee92b3c68cc11485a5c, type: 3}
+  spawnerPosition: {fileID: 991164669}
+--- !u!4 &991164669 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8567556665177266208, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
+  m_PrefabInstance: {fileID: 1525926447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1376360290
 PrefabInstance:
   m_ObjectHideFlags: 0

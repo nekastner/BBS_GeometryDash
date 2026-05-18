@@ -8,32 +8,41 @@ namespace Resources
         [SerializeField] private InputManagementScript ims;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private LogicScript logic;
-        private bool hasContact;
         public float jumpForce = 1;
+        
+        private bool _hasContact;
     
         public void Start()
         {
-            ims.Controls.Player.Jump.performed += Jump;
+            this.ims.Controls.Player.Jump.performed += this.Jump;
         }
 
         public void Update()
         {
-            if (logic.GameIsOver())
-            {
-                ims.Controls.Player.Jump.performed -= Jump;
-            }
+            if (!this.logic.GameIsOver()) return;
+            
+            this.ims.Controls.Player.Jump.performed -= this.Jump;
         }
 
         private void Jump(InputAction.CallbackContext ctx)
         {
-            if (!hasContact) return;
-            rb.linearVelocity = Vector2.up * jumpForce;
-            hasContact = false;
+            if (!this._hasContact) return;
+            
+            this.rb.linearVelocity = Vector2.up * this.jumpForce;
+            this._hasContact = false;
         }
 
         private void OnCollisionEnter2D (Collision2D collision)
         {
-            hasContact = true;
+            if (collision.gameObject.layer == LayerMask.NameToLayer("KillOnContact"))
+            {
+                this.logic.GameOver();
+            }
+
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            {
+                this._hasContact = true;
+            }
         }
     }
 }

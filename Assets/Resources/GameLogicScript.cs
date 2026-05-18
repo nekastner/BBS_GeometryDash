@@ -18,56 +18,58 @@ namespace Resources
         public void Start()
         {
             // TODO: subscribe to input system
-            ims.Controls.Player.Jump.performed += StartGame;
+            this.ims.Controls.Player.Jump.performed += this.StartGame;
             Time.timeScale = 0;
         }
 
         public bool GameIsOver()
         {
-            return _gameOver;
+            return this._gameOver;
         }
 
         private void StartGame(InputAction.CallbackContext ctx)
         {
-            if (_gameStarted) return;
-            _gameStarted = true;
+            if (this._gameStarted) return;
+            this._gameStarted = true;
             // TODO: unsubscribe from input system
             Time.timeScale = 1;
         }
     
         private void UnstartGame()
         {
-            _gameStarted = false;
+            this._gameStarted = false;
             Time.timeScale = 0;
             // TODO: set home screen
         }
 
         private void TogglePause(InputAction.CallbackContext context)
         {
-            if (_gamePaused) UnpauseGame();
-            else PauseGame();
+            if (this._gamePaused)
+                this.UnpauseGame();
+            else
+                this.PauseGame();
         }
 
         private void PauseGame()
         {
-            _gamePaused = true;
+            this._gamePaused = true;
             Time.timeScale = 0;
             // TODO: set pause screen
         }
 
         public void UnpauseGame()
         {
-            _gamePaused = false;
+            this._gamePaused = false;
             Time.timeScale = 1;
             // TODO: set game screen
 
-            if (_gameOver) GameOver();
-            if (!_gameStarted) UnstartGame();
+            if (this._gameOver) this.GameOver();
+            if (!this._gameStarted) this.UnstartGame();
         }
 
         public void GameOver()
         {
-            _gameOver = true;
+            this._gameOver = true;
             // TODO: set game over screen
         }
 
