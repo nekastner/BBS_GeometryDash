@@ -34,14 +34,13 @@ namespace Resources
 
         private void OnCollisionEnter2D (Collision2D collision)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("KillOnContact"))
-            {
-                this.logic.GameOver();
-            }
-
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 this._hasContact = true;
+            }
+            if (collision.collider.gameObject.layer == LayerMask.NameToLayer("KillOnContact"))
+            {
+                this.logic.GameOver();
             }
         }
     }

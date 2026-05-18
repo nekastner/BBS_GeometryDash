@@ -355,7 +355,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 212504678370371471, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
   m_PrefabInstance: {fileID: 1525926447}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &991164667
+--- !u!114 &991164671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -364,18 +364,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 991164664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45f4b75455c89c5f3b5bcba55a69e2a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 68c73d24294153afea903b1cb95d5ac0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacles.Scripts.SpikesScript
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleSpawnerScript
   speed: 10
-  spawnTimeDistance: 5
+  spawnTimeDistance: 3
   spikePrefab: {fileID: 8909906635777225203, guid: 4357f1d3c847bee92b3c68cc11485a5c, type: 3}
-  spawnerPosition: {fileID: 991164669}
---- !u!4 &991164669 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8567556665177266208, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
-  m_PrefabInstance: {fileID: 1525926447}
-  m_PrefabAsset: {fileID: 0}
+  stepPrefab: {fileID: 459848168260228180, guid: 6ca15da1116898ccf907af95915114b3, type: 3}
 --- !u!1001 &1376360290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -518,13 +513,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8156993794791998613, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 212504678370371471, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 991164667}
+      addedObject: {fileID: 991164671}
   m_SourcePrefab: {fileID: 100100000, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
 --- !u!1001 &1576815112
 PrefabInstance:
