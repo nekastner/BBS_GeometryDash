@@ -7,6 +7,7 @@ public class ObstacleSpawnerScript : MonoBehaviour
     public float spawnTimeDistance;
     public GameObject spikePrefab;
     public GameObject stepPrefab;
+    public GameObject jumpPadPrefab;
     
     private float _timeSinceLastSpawn;
     private readonly List<GameObject> _spawnedObjects = new();
@@ -44,10 +45,11 @@ public class ObstacleSpawnerScript : MonoBehaviour
 
     private void SpawnRandomObstacle()
     {
-        var prefabType = Random.Range(0, 2) switch
+        var prefabType = Random.Range(0, 3) switch
         {
             0 => this.stepPrefab,
-            _ => this.spikePrefab
+            1 => this.spikePrefab,
+            _ => this.jumpPadPrefab
         };
         
         var amount = Random.Range(1, 4);

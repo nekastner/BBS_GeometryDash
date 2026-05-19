@@ -179,9 +179,9 @@ GameObject:
   - component: {fileID: 319811403340012219}
   - component: {fileID: 1761283614741767399}
   - component: {fileID: 4147424898180548500}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: StepDeathCollider
-  m_TagString: Untagged
+  m_TagString: GameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

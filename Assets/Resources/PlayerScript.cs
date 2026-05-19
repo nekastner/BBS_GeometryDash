@@ -8,9 +8,11 @@ namespace Resources
         [SerializeField] private InputManagementScript ims;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private LogicScript logic;
-        public float jumpForce = 1;
+        public float jumpForce;
+        public float powerJumpForceMultiplier;
         
         private bool _hasContact;
+        private uint _airJumpsLeft;
     
         public void Start()
         {
@@ -26,21 +28,39 @@ namespace Resources
 
         private void Jump(InputAction.CallbackContext ctx)
         {
-            if (!this._hasContact) return;
+            if (!this._hasContact && this._airJumpsLeft == 0) return;
             
             this.rb.linearVelocity = Vector2.up * this.jumpForce;
+            
             this._hasContact = false;
+            if (this._airJumpsLeft != 0) this._airJumpsLeft--;
+        }
+
+        private void PowerJump()
+        {
+            this.rb.linearVelocity = Vector2.up * this.jumpForce * this.powerJumpForceMultiplier;
+            this._airJumpsLeft = 1;
         }
 
         private void OnCollisionEnter2D (Collision2D collision)
         {
-            if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            OnTriggerEnter2D(collision.collider);
+        }
+        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 this._hasContact = true;
             }
-            if (collision.collider.gameObject.layer == LayerMask.NameToLayer("KillOnContact"))
+            if (other.gameObject.CompareTag("GameOver"))
             {
                 this.logic.GameOver();
+            }
+
+            if (other.gameObject.CompareTag("PowerJump"))
+            {
+                this.PowerJump();
             }
         }
     }
