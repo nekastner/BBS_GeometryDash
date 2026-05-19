@@ -10,14 +10,14 @@ public class InputManagementScript : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
             return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this.gameObject);
 
-        Controls = new Controls();
-        Controls.Enable();
+        this.Controls = new Controls();
+        this.Controls.Enable();
     }
 }

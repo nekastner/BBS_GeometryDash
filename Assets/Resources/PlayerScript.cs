@@ -44,7 +44,7 @@ namespace Resources
 
         private void OnCollisionEnter2D (Collision2D collision)
         {
-            OnTriggerEnter2D(collision.collider);
+            this.OnTriggerEnter2D(collision.collider);
         }
         
         private void OnTriggerEnter2D(Collider2D other)
