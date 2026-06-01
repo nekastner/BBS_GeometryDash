@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameOver
   - PowerJump
+  - ScoreInc
   layers:
   - Default
   - TransparentFX

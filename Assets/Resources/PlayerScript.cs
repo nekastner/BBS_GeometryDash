@@ -43,12 +43,12 @@ namespace Resources
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            // TODO: trigger for score
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 this._hasContact = true;
                 this.StopRotation();
             }
+            
             if (other.gameObject.CompareTag("GameOver"))
             {
                 this.logic.GameOver();
@@ -57,6 +57,11 @@ namespace Resources
             if (other.gameObject.CompareTag("PowerJump"))
             {
                 this.PowerJump();
+            }
+
+            if (other.gameObject.CompareTag("ScoreInc"))
+            {
+                this.logic.AddScore(1);
             }
         }
         

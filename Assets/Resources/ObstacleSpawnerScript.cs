@@ -10,6 +10,7 @@ public class ObstacleSpawnerScript : MonoBehaviour
     public GameObject spikePrefab;
     public GameObject stepPrefab;
     public GameObject jumpPadPrefab;
+    public GameObject scoreIncPrefab;
 
     public LogicScript logic;
     
@@ -69,10 +70,11 @@ public class ObstacleSpawnerScript : MonoBehaviour
             1 => this.spikePrefab,
             _ => this.jumpPadPrefab
         };
-        
         var amount = Random.Range(1, 4);
+        var space = Random.Range(1, 2);
 
-        this.SpawnGameObject(prefabType, amount, 1);
+        this.SpawnGameObject(this.scoreIncPrefab, amount, space);
+        this.SpawnGameObject(prefabType, amount, space);
     }
 
     private void SpawnGameObject(GameObject prefab, int amount, float space)

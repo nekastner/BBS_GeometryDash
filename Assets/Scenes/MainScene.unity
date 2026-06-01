@@ -693,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6566523375165811174, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6566523375165811174, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: m_LocalPosition.z
@@ -925,6 +925,7 @@ MonoBehaviour:
   spikePrefab: {fileID: 8909906635777225203, guid: 4357f1d3c847bee92b3c68cc11485a5c, type: 3}
   stepPrefab: {fileID: 459848168260228180, guid: 6ca15da1116898ccf907af95915114b3, type: 3}
   jumpPadPrefab: {fileID: 55296179739388125, guid: b02d5eb894783a46eacd43c062cda85b, type: 3}
+  scoreIncPrefab: {fileID: 4499210438491034710, guid: 50e7532024f392dcbb4821ea1976b413, type: 3}
   logic: {fileID: 618100964}
 --- !u!1001 &4872853524210200829
 PrefabInstance:
