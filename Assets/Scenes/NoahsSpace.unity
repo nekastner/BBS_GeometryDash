@@ -373,6 +373,7 @@ MonoBehaviour:
   spikePrefab: {fileID: 8909906635777225203, guid: 4357f1d3c847bee92b3c68cc11485a5c, type: 3}
   stepPrefab: {fileID: 459848168260228180, guid: 6ca15da1116898ccf907af95915114b3, type: 3}
   jumpPadPrefab: {fileID: 55296179739388125, guid: b02d5eb894783a46eacd43c062cda85b, type: 3}
+  logic: {fileID: 1949529245}
 --- !u!1001 &1376360290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -403,7 +404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3485462989641053996, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: powerJumpForceMultiplier
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1565342754069346948, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: m_Name
@@ -411,6 +412,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4436832135065896092, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436832135065896092, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
+      propertyPath: m_Constraints
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4436832135065896092, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
@@ -523,8 +528,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8156993794791998613, guid: eade8fc8440f8af818e4654f30702a31, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
