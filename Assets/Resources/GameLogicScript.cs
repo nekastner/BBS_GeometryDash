@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -7,80 +8,93 @@ namespace Resources
     public class LogicScript : MonoBehaviour
     {
         [SerializeField] private InputManagementScript ims;
+        
+        public GameObject startScreen;
+        public GameObject gameOverScreen;
+
+        public TextMeshProUGUI scoreText;
+        public TextMeshProUGUI highScoreText;
     
-        private bool _gameStarted;
-        private bool _gamePaused;
-        private bool _gameOver;
+        private GameState _gameState;
 
         private int _score;
         private int _highScore;
 
         public void Start()
         {
-            // TODO: subscribe to input system
             this.ims.Controls.Player.Jump.performed += this.StartGame;
             Time.timeScale = 0;
+            
+            this.gameOverScreen.SetActive(false);
+            this.startScreen.SetActive(true);
+        }
+        
+        public void AddScore(int scoreToAdd)
+        {
+            this._score += scoreToAdd;
+            this.scoreText.text = this._score.ToString();
+        
+            if (this._score > this._highScore) this.UpdateHighScore(this._score);
         }
 
-        public bool GameIsOver()
+        private void UpdateHighScore(int newHighScore)
         {
-            return this._gameOver;
+            this._highScore = newHighScore;
+
+            this.highScoreText.text = this._highScore.ToString();
+
+            if (PlayerPrefs.GetInt("HighScore") >= this._highScore) return;
+
+            PlayerPrefs.SetInt("HighScore", this._highScore);
+            PlayerPrefs.Save();
         }
+
+        public bool GameIsOver() => this._gameState == GameState.GameOver;
 
         private void StartGame(InputAction.CallbackContext ctx)
         {
-            if (this._gameStarted) return;
-            this._gameStarted = true;
-            // TODO: unsubscribe from input system
-            Time.timeScale = 1;
+            switch (this._gameState)
+            {
+                case GameState.Playing:
+                    return;
+                
+                case GameState.NotStarted:
+                    this._gameState = GameState.Playing;
+                    this.gameOverScreen.SetActive(false);
+                    this.startScreen.SetActive(false);
+                    Time.timeScale = 1;
+                    break;
+                
+                case  GameState.GameOver:
+                    this.UnstartGame();
+                    break;
+            }
         }
     
         private void UnstartGame()
         {
-            this._gameStarted = false;
+            this._gameState = GameState.NotStarted;
             Time.timeScale = 0;
-            // TODO: set home screen
-        }
-
-        private void TogglePause(InputAction.CallbackContext context)
-        {
-            if (this._gamePaused)
-                this.UnpauseGame();
-            else
-                this.PauseGame();
-        }
-
-        private void PauseGame()
-        {
-            this._gamePaused = true;
-            Time.timeScale = 0;
-            // TODO: set pause screen
-        }
-
-        public void UnpauseGame()
-        {
-            this._gamePaused = false;
-            Time.timeScale = 1;
-            // TODO: set game screen
-
-            if (this._gameOver) this.GameOver();
-            if (!this._gameStarted) this.UnstartGame();
+            
+            this.gameOverScreen.SetActive(false);
+            this.startScreen.SetActive(true);
         }
 
         public void GameOver()
         {
-            this._gameOver = true;
-            // TODO: set game over screen
+            this._gameState = GameState.GameOver;
+            this.gameOverScreen.SetActive(true);
         }
 
-        public void RestartScene()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        public void RestartScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-        public void Quit()
-        {
-            Application.Quit();
-        }
+        public void Quit() => Application.Quit();
+    }
+
+    public enum GameState
+    {
+        NotStarted,
+        Playing,
+        GameOver
     }
 }
