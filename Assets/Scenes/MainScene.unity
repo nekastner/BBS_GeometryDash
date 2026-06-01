@@ -342,7 +342,7 @@ PrefabInstance:
       objectReference: {fileID: 618100964}
     - target: {fileID: -3485462989641053996, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: jumpForce
-      value: 5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: -3485462989641053996, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: powerJumpForceMultiplier
@@ -351,6 +351,10 @@ PrefabInstance:
     - target: {fileID: 1565342754069346948, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436832135065896092, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
+      propertyPath: m_GravityScale
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6566523375165811174, guid: 406ac4b5c5d21cc128813c8d1490ff42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -922,6 +926,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6589070779915001783, guid: b78cdfaa94430a5578dcbe8b37aebff0, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: ba017179276031810a73ccea13e0231c, type: 3}
     - target: {fileID: 6751842342309651372, guid: b78cdfaa94430a5578dcbe8b37aebff0, type: 3}
       propertyPath: m_Name
       value: BackgroundMusic
