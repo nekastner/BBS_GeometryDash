@@ -49,7 +49,7 @@ namespace Resources
             PlayerPrefs.Save();
         }
 
-        public bool GameIsOver() => this._gameState == GameState.GameOver;
+        public bool IsGameOver => this._gameState == GameState.GameOver;
 
         private void StartGame(InputAction.CallbackContext ctx)
         {

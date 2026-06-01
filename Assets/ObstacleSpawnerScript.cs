@@ -1,13 +1,17 @@
 using System.Collections.Generic;
+using Resources;
 using UnityEngine;
 
 public class ObstacleSpawnerScript : MonoBehaviour
 {
     public float speed;
     public float spawnTimeDistance;
+    
     public GameObject spikePrefab;
     public GameObject stepPrefab;
     public GameObject jumpPadPrefab;
+
+    public LogicScript logic;
     
     private float _timeSinceLastSpawn;
     private readonly List<GameObject> _spawnedObjects = new();
@@ -19,6 +23,20 @@ public class ObstacleSpawnerScript : MonoBehaviour
 
     public void Update()
     {
+        if (this.logic.IsGameOver)
+        {
+            if (this._spawnedObjects.Count > 0)
+            {
+                foreach (var spawnedObject in this._spawnedObjects.ToArray())
+                {
+                    this._spawnedObjects.Remove(spawnedObject);
+                    Destroy(spawnedObject);
+                }
+            }
+
+            return;
+        }
+        
         // check delta time
         var deltaTime = Time.deltaTime;
         this._timeSinceLastSpawn += deltaTime;

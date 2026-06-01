@@ -21,16 +21,9 @@ namespace Resources
             this.ims.Controls.Player.Jump.performed += this.Jump;
         }
 
-        public void Update()
-        {
-            if (!this.logic.GameIsOver()) return;
-            
-            this.ims.Controls.Player.Jump.performed -= this.Jump;
-        }
-
         private void Jump(InputAction.CallbackContext ctx)
         {
-            if (!this._hasContact && this._airJumpsLeft == 0) return;
+            if (this.logic.IsGameOver || (!this._hasContact && this._airJumpsLeft == 0)) return;
             
             this.rb.linearVelocity = Vector2.up * this.jumpForce;
             this.StartCoroutine(this.Rotate(90f, 1.0f));
@@ -46,10 +39,7 @@ namespace Resources
             this.StartCoroutine(this.Rotate(90f, 2.0f));
         }
 
-        private void OnCollisionEnter2D (Collision2D collision)
-        {
-            this.OnTriggerEnter2D(collision.collider);
-        }
+        private void OnCollisionEnter2D (Collision2D collision) => this.OnTriggerEnter2D(collision.collider);
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -74,10 +64,10 @@ namespace Resources
         {
             this._isRotating = true;
 
-            Quaternion startRotation = this.rb.transform.rotation;
-            Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, angle);
+            var startRotation = this.rb.transform.rotation;
+            var endRotation = startRotation * Quaternion.Euler(0, 0, -angle);
         
-            float elapsed = 0f;
+            var elapsed = 0f;
 
             while (elapsed < duration && this._isRotating)
             {
